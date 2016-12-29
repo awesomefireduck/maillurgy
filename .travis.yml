@@ -20,11 +20,11 @@ rust:
 
 # load travis-cargo
 before_script:
-  - cargo install cargo-kcov
 
 
 after_success:
   - |
+      cargo install cargo-kcov
       mkdir ~/kcov  &&
       cd ~/kcov  &&
       wget https://github.com/SimonKagstrom/kcov/archive/v32.tar.gz  &&
@@ -33,7 +33,7 @@ after_success:
       cd build  &&
       cmake ..  &&
       make -j
-  - PATH="~/kcov/build/src:$PATH" cargo kcov -- --verify --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo target/kcov target/debug/maillurgy-*
+  - PATH="$HOME/kcov/build/src:$PATH" cargo kcov -- --verify --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo target/kcov target/debug/maillurgy-*
 
 matrix:
   allow_failures:
