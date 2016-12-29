@@ -33,7 +33,7 @@ after_success:
       cd build  &&
       cmake ..  &&
       make -j
-  - env;  PATH="$HOME/kcov/build/src:$PATH" cargo kcov -- --verify --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo target/kcov target/debug/maillurgy-*
+  - cd $TRAVIS_BUILD_DIR; PATH="$HOME/kcov/build/src:$PATH" cargo kcov -- --verify --coveralls-id=$TRAVIS_JOB_ID --exclude-pattern=/.cargo target/kcov target/debug/maillurgy-*
 
 matrix:
   allow_failures:
