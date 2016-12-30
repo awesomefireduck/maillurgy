@@ -56,7 +56,7 @@ $ nvim src/
 $ git add -p
 $ git commit
 # publish your changes
-$ git push origin your-branchname-here
+$ git push --set-upstream origin your-branchname-here
 ```
 Then make a pull request to awesomefireduck/maillurgy on branch master
 
